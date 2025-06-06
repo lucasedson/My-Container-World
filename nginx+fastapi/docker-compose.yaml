@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  fastapi:
+    build: ./fastapi-app
+    container_name: fastapi
+    expose:
+      - "8000"
+    restart: always
+
+  nginx:
+    image: nginx:stable
+    container_name: nginx
+    ports:
+      - "8888:80"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+    depends_on:
+      - fastapi
+    restart: always
