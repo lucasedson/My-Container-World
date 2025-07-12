@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- tailwind cdn-->
+    <script src="https://cdn.tailwindcss.com"></script>    
+    <title>Chatwoot</title>
+</head>
+<body class="bg-[#030406]">
+    <div class="flex justify-center items-center h-screen">
+        <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-500 to-blue-400 bg-clip-text text-transparent">Integração com Chatwoot</h1>
+    </div>
+
+    
+    <script>
+      (function(d,t) {
+        var BASE_URL="http://0.0.0.0:3000";
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=BASE_URL+"/packs/js/sdk.js";
+        g.defer = true;
+        g.async = true;
+        s.parentNode.insertBefore(g,s);
+        g.onload=function(){
+          window.chatwootSDK.run({
+            websiteToken: 'o61nrb8ric74dWo7ukcYRhYp',
+            baseUrl: BASE_URL
+          })
+        }
+      })(document,"script");
+    </script>
+    
+    
+</body>
+</html>
